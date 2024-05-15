@@ -23,7 +23,13 @@ function App() {
   }
 
   return (
-    <Box sx={{ boxSizing: 'border-box', p: 6 }}>
+    <Box sx={{
+      display: 'flex',          // Added flexbox layout
+      justifyContent: 'space-around',
+      flexDirection: 'column', // Added space-around alignment
+      boxSizing: 'border-box',
+      p: 6,
+    }}>
       <SearchByName  handleSearchUrl={handleSearchUrl}/>
       <DisplayCharacters URL={url} handleTotalPages={handleTotalPages} />
       <PaginatedItems handleUrl={handleUrl} totalPages={totalPages} />

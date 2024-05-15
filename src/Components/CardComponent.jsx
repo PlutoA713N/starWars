@@ -8,6 +8,8 @@ const CardComponent = ({ index, title, speciesColor, charactersData }) => {
   const [open, setOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false); 
 
+
+  console.log(index, 'index')
   const handleOpen = () => {
     setOpen(true);
   };
