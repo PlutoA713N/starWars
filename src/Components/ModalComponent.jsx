@@ -40,7 +40,7 @@ const ModalComponent = ({ open, characterData, handleClose }) => {
           minWidth: 400,
         }}
       >
-        {!characterData && <Loading />} //
+        {!characterData && <Loading />} 
         {characterData ? (  
           <>
             <Typography variant="h2" id="modal-title" gutterBottom>
