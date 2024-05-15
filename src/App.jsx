@@ -6,7 +6,7 @@ import SearchByName from './Components/SearchByName';
 
 
 function App() {
-  const [url, setUrl] = useState(import.meta.env.VITE_APP_GET_ALL_CHARACTERS);
+  const [url, setUrl] = useState('https://swapi.dev/api/people');
   const [totalPages, setTotalPages] = useState(0);
 
   const handleUrl = (newUrlLink) => {
