@@ -6,8 +6,8 @@ const RoutesConfig = () => {
     return(
     <Router>
         <Routes>
-        <Route path="/*" element={<Navigate to="/people/" replace />} />
-                <Route default path='/people/' element={<App />} />
+        <Route path="/*" element={<Navigate to="/people" replace />} />
+                <Route default path='/people' element={<App />} />
         </Routes>
     </Router>
     )
