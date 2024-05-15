@@ -1,8 +1,44 @@
-# React + Vite
+# 👽 STAR WARS GALLERY
+Star Wars Characters Gallery, where you can see the image of the character and details about it.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Available at https://starwars-eta-five.vercel.app/
 
-Currently, two official plugins are available:
+# 🚀 API
+I used SWAPI, Star Wars API https://swapi.dev/documentation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🛰️ Tools
+I used Axios for api call and materialUI for designing UI.
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/PlutoA713N/starWars.git
+   ```
+
+2. **Navigate to the Project Directory:**
+   
+   ```bash
+    cd starWars
+   ```
+
+
+3. **Install Dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+4. **Run the Development Server:**
+   
+   ```bash
+    npm run dev
+   ```
+
+5. **Build for Production:**
+   
+   ```bash
+    npm run build
+   ```
+
