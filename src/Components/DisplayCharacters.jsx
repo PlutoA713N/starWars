@@ -35,6 +35,11 @@ const DisplayCharacters = ({ URL, handleTotalPages }) => {
   if (loading) return <Loading />;
   if (error) return <Error message={error.message} onRetry={retryFetch} />;
 
+  if (!data || data.results.length === 0) {
+    return <h3>No Characters Found!</h3>;
+  }
+  
+
   const previousPage = data?.previous ? Number(data.previous.match(/page=(\d+)/)[1]) : 0;
 
   return (
