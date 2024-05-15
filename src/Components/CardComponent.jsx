@@ -31,7 +31,7 @@ const CardComponent = ({ index, title, speciesColor, charactersData }) => {
       <Card
         sx={{
           width: 316,
-          height: 500,
+          height: 490,
           mt: 2,
           mb: 2,
           transition: 'transform 0.3s',
