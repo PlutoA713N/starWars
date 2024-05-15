@@ -46,7 +46,8 @@ const CardComponent = ({ index, title, speciesColor, charactersData }) => {
         {!imageLoaded && <Loading />} 
         <CardMedia
           component="img"
-          image={`public/static/assets/img/people/${index}.jpg`}
+          // image={`public/static/assets/img/people/${index}.jpg`}
+          image={`../static/assets/img/people/${index}.jpg`}
           alt={title}
           sx={{
             width: '100%',
