@@ -50,7 +50,7 @@ const DisplayCharacters = ({ URL, handleTotalPages }) => {
           title={character.name}
           index={
             !data?.previous && !data?.next
-              ? Number(data?.results[0].url.match(/\/people\/(\d+)\//)?.[1])
+              ? Number(data?.results[0].url.match(/\/people\/(\d+)\//)?.[1]) - 1
               : previousPage ? previousPage * 10 + index + 1 : index + 1
           }
           charactersData={character}
