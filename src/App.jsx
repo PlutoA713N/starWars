@@ -24,9 +24,6 @@ function App() {
 
   return (
     <Box sx={{
-      display: 'flex',          // Added flexbox layout
-      justifyContent: 'space-around',
-      flexDirection: 'column', // Added space-around alignment
       boxSizing: 'border-box',
       p: 6,
     }}>
