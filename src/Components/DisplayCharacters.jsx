@@ -43,7 +43,7 @@ const DisplayCharacters = ({ URL , handleTotalPages}) => {
   const previousPage = data?.previous ? Number(data.previous.match(/page=(\d+)/)[1]) : 0;
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap' , minHeight: '100vh'}}>
+    <Box sx={{ display: 'flex', flexDirection: 'row',  flexWrap: 'wrap' , minHeight: '100vh'}}>
       {data?.results.map((character, index) => (
         <CardComponent
           key={character.name}
