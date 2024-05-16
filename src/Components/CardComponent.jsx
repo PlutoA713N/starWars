@@ -9,7 +9,6 @@ const CardComponent = ({ index, title, speciesColor, charactersData }) => {
   const [imageLoaded, setImageLoaded] = useState(false); 
 
 
-  console.log(index, 'index')
   const handleOpen = () => {
     setOpen(true);
   };
@@ -34,6 +33,7 @@ const CardComponent = ({ index, title, speciesColor, charactersData }) => {
           height: 490,
           mt: 2,
           mb: 2,
+          ml: 2,
           transition: 'transform 0.3s',
           '&:hover': {
             transform: 'scale(1.05)',
