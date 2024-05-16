@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import Loading from './Loading';
 import Error from './Error';
 
-const DisplayCharacters = ({ URL }) => {
+const DisplayCharacters = ({ URL , handleTotalPages}) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ const DisplayCharacters = ({ URL }) => {
     try {
       const response = await axios.get(URL);
       setData(response.data);
-      // handleTotalPages(Math.ceil(response.data.count / 10)); 
+      handleTotalPages(Math.ceil(response.data.count / 10)); 
     } catch (error) {
       setError(error);
     } finally {
