@@ -14,7 +14,7 @@ function App() {
   const searchUrl = `https://swapi.dev/api/people/?search=`
   const pageUrl = `https://swapi.dev/api/people/?page=`
 
-  const totalPages = 9
+  const [totalPages, setTotalPages] = useState(9)
 
 // for search 
 const [searchTerm, setSearchTerm] = useState('')
@@ -56,6 +56,10 @@ useEffect(() => {
     }
   };
 
+  const handleTotalPages = (pageCount) => {
+    setTotalPages(pageCount)
+  }
+
 
 
   return (
@@ -82,8 +86,8 @@ useEffect(() => {
         <Logo />
         <SearchByName searchTerm={searchTerm} handleChange={handleChange}/>
         {(debouncedSearchTerm !== "")
-         ?  <DisplayCharacters URL={searchUrl+debouncedSearchTerm} />
-        : <DisplayCharacters URL={pageUrl+page}  />
+         ?  <DisplayCharacters URL={searchUrl+debouncedSearchTerm} handleTotalPages={handleTotalPages}/>
+        : <DisplayCharacters URL={pageUrl+page}  handleTotalPages={handleTotalPages}/>
         }
         <PaginatedItems 
           page={page}
