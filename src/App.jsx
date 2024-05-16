@@ -5,23 +5,58 @@ import PaginatedItems from './Components/PaginatedItems';
 import SearchByName from './Components/SearchByName';
 import Logo from './Components/Logo';
 
+// import { debounce } from 'lodash';
+import  {  useEffect } from 'react';
+
 import backgroundImage from './../public/wp3390444-wallpaper-star-war.jpg'
 
 function App() {
-  const [url, setUrl] = useState('https://swapi.dev/api/people');
-  const [totalPages, setTotalPages] = useState(0);
+  const searchUrl = `https://swapi.dev/api/people/?search=`
+  const pageUrl = `https://swapi.dev/api/people/?page=`
 
-  const handleUrl = (newUrlLink) => {
-    setUrl(newUrlLink);
+  const totalPages = 9
+
+// for search 
+const [searchTerm, setSearchTerm] = useState('')
+const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+
+const handleChange = (value) => {
+  setSearchTerm(value);
+};
+
+useEffect(() => {
+  const debounceTimer = setTimeout(() => {
+    setDebouncedSearchTerm(searchTerm);
+  }, 1000); 
+  return () => clearTimeout(debounceTimer);
+}, [searchTerm]);
+
+
+
+
+  // 
+
+  const [page, setPage] = useState(1);
+
+  const handlePrevious = () => {
+    if (page > 1) {
+      setPage((prevPage) => {
+        const newPage = prevPage - 1;
+        return newPage;
+      });
+    }
   };
 
-  const handleTotalPages = (pages) => {
-    setTotalPages(pages);
+  const handleNext = () => {
+    if (page < totalPages) {
+      setPage((prevPage) => {
+        const newPage = prevPage + 1;
+        return newPage;
+      });
+    }
   };
 
-  const handleSearchUrl = (newUrlLink) => {
-    setUrl(newUrlLink);
-  }
+
 
   return (
     <Box sx={{
@@ -33,7 +68,10 @@ function App() {
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
-      backgroundColor: 'transparent' 
+      backgroundColor: 'transparent' ,
+      minHeight: '100vh',
+      boxSizing: 'border-box',
+      padding: '4rem'
     }}>
 
       <Box sx={{ 
@@ -42,9 +80,17 @@ function App() {
         borderRadius: '10px',
       }}>
         <Logo />
-        <SearchByName handleSearchUrl={handleSearchUrl}/>
-        <DisplayCharacters URL={url} handleTotalPages={handleTotalPages} />
-        <PaginatedItems handleUrl={handleUrl} totalPages={totalPages} />
+        <SearchByName searchTerm={searchTerm} handleChange={handleChange}/>
+        {(debouncedSearchTerm !== "")
+         ?  <DisplayCharacters URL={searchUrl+debouncedSearchTerm} />
+        : <DisplayCharacters URL={pageUrl+page}  />
+        }
+        <PaginatedItems 
+          page={page}
+          handlePrevious={handlePrevious}
+          handleNext={handleNext}
+          totalPages={totalPages} 
+          />
       </Box>
 
     </Box>
