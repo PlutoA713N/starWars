@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import Loading from './Loading';
 import Error from './Error';
 
-const DisplayCharacters = ({ URL, handleTotalPages }) => {
+const DisplayCharacters = ({ URL }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +16,7 @@ const DisplayCharacters = ({ URL, handleTotalPages }) => {
     try {
       const response = await axios.get(URL);
       setData(response.data);
-      handleTotalPages(Math.ceil(response.data.count / 10)); 
+      // handleTotalPages(Math.ceil(response.data.count / 10)); 
     } catch (error) {
       setError(error);
     } finally {
@@ -26,7 +26,7 @@ const DisplayCharacters = ({ URL, handleTotalPages }) => {
 
   useEffect(() => {
     fetchData();
-  }, [URL, handleTotalPages]);
+  }, [URL]);
 
   const retryFetch = () => {
     fetchData();
@@ -43,7 +43,7 @@ const DisplayCharacters = ({ URL, handleTotalPages }) => {
   const previousPage = data?.previous ? Number(data.previous.match(/page=(\d+)/)[1]) : 0;
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap' , minHeight: '100vh'}}>
       {data?.results.map((character, index) => (
         <CardComponent
           key={character.name}
