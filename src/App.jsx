@@ -5,7 +5,6 @@ import PaginatedItems from './Components/PaginatedItems';
 import SearchByName from './Components/SearchByName';
 import Logo from './Components/Logo';
 
-// import { debounce } from 'lodash';
 import  {  useEffect } from 'react';
 
 import backgroundImage from './../public/wp3390444-wallpaper-star-war.jpg'
@@ -33,8 +32,6 @@ useEffect(() => {
 
 
 
-
-  // 
 
   const [page, setPage] = useState(1);
 
@@ -75,13 +72,17 @@ useEffect(() => {
       backgroundColor: 'transparent' ,
       minHeight: '100vh',
       boxSizing: 'border-box',
-      padding: '4rem'
+      padding: '3.5rem'
     }}>
 
       <Box sx={{ 
-        backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-        padding: '20px',
+        backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+        padding: '1rem',
+        paddingRight: '2rem',
         borderRadius: '10px',
+
+        maxWidth: '100%',  
+        flexShrink: 0,
       }}>
         <Logo />
         <SearchByName searchTerm={searchTerm} handleChange={handleChange}/>
