@@ -1,28 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 
-const PaginatedItems = ({ handleUrl, totalPages }) => {
-  const [page, setPage] = useState(1);
-
-  const handlePrevious = () => {
-    if (page > 1) {
-      setPage((prevPage) => {
-        const newPage = prevPage - 1;
-        handleUrl(`https://swapi.dev/api/people/?page=${newPage}`);
-        return newPage;
-      });
-    }
-  };
-
-  const handleNext = () => {
-    if (page < totalPages) {
-      setPage((prevPage) => {
-        const newPage = prevPage + 1;
-        handleUrl(`https://swapi.dev/api/people/?page=${newPage}`);
-        return newPage;
-      });
-    }
-  };
+const PaginatedItems = ({ page, handlePrevious, handleNext, totalPages }) => {
+  
 
   return (
     <Box sx={{ textAlign: 'center' }}>
