@@ -16,7 +16,7 @@ const PaginatedItems = ({ page, handlePrevious, handleNext, totalPages }) => {
         >
           Previous
         </Button>
-        <Typography variant="body1" sx={{ mx: 2 , color: 'white'}}>
+        <Typography variant="body1" sx={{ mx: 2 , color: 'white', fontSize: '1.3rem'}}>
           Page {page} of {totalPages}
         </Typography>
         <Button
