@@ -64,8 +64,6 @@ useEffect(() => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: 'auto', 
-      width: '100vw', 
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
@@ -77,12 +75,12 @@ useEffect(() => {
 
       <Box sx={{ 
         backgroundColor: 'rgba(255, 255, 255, 0.15)', 
-        padding: '1rem',
-        paddingRight: '2rem',
         borderRadius: '10px',
-
-        maxWidth: '100%',  
+        width: '100%',
         flexShrink: 0,
+
+        boxSizing: 'border-box',
+        padding: '1.5rem'
       }}>
         <Logo />
         <SearchByName searchTerm={searchTerm} handleChange={handleChange}/>
