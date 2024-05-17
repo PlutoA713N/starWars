@@ -69,7 +69,6 @@ useEffect(() => {
       backgroundPosition: 'center',
       backgroundColor: 'transparent' ,
       minHeight: '100vh',
-      boxSizing: 'border-box',
       padding: '3.5rem'
     }}>
 
