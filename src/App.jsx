@@ -71,6 +71,7 @@ useEffect(() => {
       minHeight: '100vh',
       boxSizing: 'border-box',
       padding: '3.5rem'
+
     }}>
 
       <Box sx={{ 
@@ -78,8 +79,6 @@ useEffect(() => {
         borderRadius: '10px',
         width: '100%',
         flexShrink: 0,
-
-        // boxSizing: 'border-box',
         padding: '1.5rem'
       }}>
         <Logo />
