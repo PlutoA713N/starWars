@@ -21,12 +21,13 @@ const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
 const handleChange = (value) => {
   setSearchTerm(value);
+  setPage(1)
 };
 
 useEffect(() => {
   const debounceTimer = setTimeout(() => {
     setDebouncedSearchTerm(searchTerm);
-  }, 1000); 
+  }, 500); 
   return () => clearTimeout(debounceTimer);
 }, [searchTerm]);
 
@@ -84,7 +85,7 @@ useEffect(() => {
         <Logo />
         <SearchByName searchTerm={searchTerm} handleChange={handleChange}/>
         {(debouncedSearchTerm !== "")
-         ?  <DisplayCharacters URL={searchUrl+debouncedSearchTerm} handleTotalPages={handleTotalPages}/>
+         ?  <DisplayCharacters URL={searchUrl+debouncedSearchTerm+`&page=${page}`} handleTotalPages={handleTotalPages}/>
         : <DisplayCharacters URL={pageUrl+page}  handleTotalPages={handleTotalPages}/>
         }
         <PaginatedItems 
