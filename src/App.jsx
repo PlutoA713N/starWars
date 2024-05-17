@@ -69,6 +69,7 @@ useEffect(() => {
       backgroundPosition: 'center',
       backgroundColor: 'transparent' ,
       minHeight: '100vh',
+      boxSizing: 'border-box',
       padding: '3.5rem'
     }}>
 
@@ -78,7 +79,7 @@ useEffect(() => {
         width: '100%',
         flexShrink: 0,
 
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         padding: '1.5rem'
       }}>
         <Logo />
