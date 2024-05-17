@@ -36,11 +36,16 @@ const DisplayCharacters = ({ URL , handleTotalPages}) => {
   if (error) return <Error message={error.message} onRetry={retryFetch} />;
 
   if (!data || data.results.length === 0) {
-    return <h3>No Characters Found!</h3>;
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row',  flexWrap: 'wrap' , minHeight: '100vh'}}>
+      <h3>No Characters Found!</h3>;
+      </Box>
+    )
   }
   
 
   const previousPage = data?.previous ? Number(data.previous.match(/page=(\d+)/)[1]) : 0;
+
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row',  flexWrap: 'wrap' , minHeight: '100vh'}}>
